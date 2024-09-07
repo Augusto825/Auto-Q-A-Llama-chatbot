@@ -1,0 +1,7 @@
+FTP_HOST = 'malachairising.com'
+FTP_USER = 'freelancer@burgerkingclaim.com'
+FTP_PASSWORD = 'Freelancer2024@900AM'
+WP_CONTENT_FOLDER = '/wp-content/'
+QUESTIONS_FOLDER = 'questions/'
+ANSWERS_FOLDER = 'answers/'
+LLAMA_MODEL = 'llama-7b'
