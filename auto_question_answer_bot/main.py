@@ -51,6 +51,7 @@ def get_questions():
 
 def answer_question_file(question_file):
     try:
+        logging.info("Q & A bot running!")
         # Download question file
         with open(question_file, 'wb') as file:
             response = ftp.retrbinary('RETR '+ WP_CONTENT_FOLDER + QUESTIONS_FOLDER + question_file, file.write)
@@ -98,6 +99,7 @@ def answer_question_file(question_file):
             if not response.startswith('226'):
                 logging.error(f"Error uploading answer file {answer_file}: {response}")
                 return
+        logging.info("Answered the questions once.")
     except Exception as e:
         logging.error(f"Error in answer_question({question_file}): {e}")
 

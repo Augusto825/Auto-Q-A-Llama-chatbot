@@ -8,11 +8,10 @@ const port = 3000;
 async function main() {
   try {
     const client = new LMStudioClient();
-    const model = await client.llm.load("Llama-2-7B-Chat-GGUF/llama-2-7b-chat.Q4_0.gguf");
+    const model = await client.llm.load("monal04/llama-2-7b-chat.Q4_0.gguf-GGML/llama-2-7b-chat.Q4_0.gguf");
 
     app.post('/predict', async (req, res) => {
       try {
-        console.log("request", req.body);
         const question = req.body.question;
         if (!question) {
           res.status(400).send({ error: 'No question provided' });
@@ -41,7 +40,12 @@ async function main() {
     });
   } catch (error) {
     console.error('Error starting server:', error);
-    process.exit(1);
+    console.log('Error occurred. Please check the logs for more information.');
+    console.log('Press any key to continue...');
+    process.stdin.setEncoding('utf8');
+    process.stdin.on('data', () => {
+      process.exit(0);
+    });
   }
 }
 
